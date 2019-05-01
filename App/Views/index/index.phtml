@@ -1,0 +1,229 @@
+	<link rel="stylesheet" type="text/css" href="/css/noticia/noticia_index.css">
+
+	<nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparante">
+
+
+		<div class="container-fluid">
+
+			<i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+
+
+			<!-- botao responsivo -->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="nav-principal">
+				<ul class="navbar-nav  ml-auto mt-2">
+					<li class="nav-item">
+						<a href="/inscreverse" class="nav-link mt-1">Cadastre-se</a>
+					</li>
+					<li class="nav-item">
+						<a href="/inscreverse" class="nav-link mt-1">Contato</a>
+					</li>
+					<li class="nav-item">
+						<a href="/inscreverse" class="nav-link mt-1">Noticias</a>
+					</li>
+					<li class="nav-item">
+						<a href="/inscreverse" class="nav-link mt-1">Contato</a>
+					</li>
+					<!-- Divisor-->
+					<li class="nav-item divisor"> </li>
+					<li class="nav-item">
+
+						<!-- Formulario--> 
+						<form  method="post" action="/autenticar" class="form-inline mt-2">
+							<input name="email" type="text" class="form-control form-control-sm mr-2" placeholder="Email">
+							<input name="senha" type="password" class="form-control form-control-sm mr-2" placeholder="Senha">
+							<button class="btn btn-outline-light btn-sm">Entrar</button>
+						</form>
+						<?php if ($this->view->login == 'erro') { ?>
+							<span class="text-danger pt-0">* Email e/ou senha invalidos!</span>									
+						<?php } ?>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim menu superior-->
+
+	<section id="home" class="d-flex"><!-- Seção home carousel-->
+		<div class="container align-self-center">
+			<div class="row">
+				<div class="col-md-12 capa">
+
+					<!-- Carousel -->
+					<div id="carousel-spotify" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">              
+							<div class="carousel-item active">
+								<h1>Projeto Arena </h1>
+								<p class="pb-5" style="font-size: 30px; color:white">
+									Faça parte do projeto Arena.<br>
+									Aqui você se cadastra, participa ou cria uma equipe para<br>
+								batalharem juntos por premiações e, claro, pra mostrar que são os melhores!!</p>
+								<a href="/inscreverse" class="btn btn-lg btn-custom btn-roxo mr-4">
+									<span>
+										<i class="fas fa-user"></i>
+									</span>
+								Cadastre-se</a>
+							</div>
+							<div class="carousel-item">
+								<h1>Cadastre sua equipe</h1>
+								<p class="pb-5" style="font-size: 30px; color:white">Cadastre sua equipe em torneios que testam suas habilidades.<br>
+									e de sua equipe.
+								Você e sua equipe concorrem a prêmiações.</p>
+								<a href="/cadastreequipe" class="btn btn-lg btn-custom btn-branco">
+									<span style="color: yellow;">
+										<i class="fas fa-trophy"></i>
+									</span> Participe de torneios
+								</a>
+							</div>
+						</div><!-- Inner -->
+						<!-- Controles -->
+						<a href="#carousel-spotify" class="carousel-control-prev" data-slide="prev">
+							<i class="fas fa-angle-left fa-3x"></i>
+						</a>
+						<a href="#carousel-spotify" class="carousel-control-next" data-slide="next">
+							<i class="fas fa-angle-right fa-3x"></i>
+						</a>
+					</div><!-- Carousel -->
+
+				</div>
+			</div>
+		</div>
+	</section><!--Fim seção home carousel-->
+
+	<section id="servicos" class="caixa"><!--Seção conteúdos-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="row albuns">
+
+						<div class="col-md-12"><!-- cards -->
+							
+							<div class="card-sm-4 text-light transacao-cards-index">
+								<img class="card-img-top " src="img/imagem-card-torneio.jpg">
+								<div class="card-img-overlay">
+									<h4 class="card-title text-center">Torneios</h4>
+									<h6 class="card-subtitle text-center"> </h6>
+									<p class="card-text text-center"> </p>
+									<a class="btn btn-outline-light btn-block botao-baixo" href="">
+										<span style="color: yellow;">
+											<i class="fas fa-trophy"></i>
+										</span> Pesquisar
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</div>  
+
+					<div class="row albuns pt-1 mt-3">
+						<div class="col-md-6">
+							<div class="card-md-4 transacao-cards-index">
+								<div class="card-body">
+									<h4 class="card-title text-center">Ranking</h4>
+									<h6 class="card-subtitle text-center">Veja a classificação geral.</h6>
+									<p class="card-text text-center">texto </p>
+									<a class="btn btn-outline-dark btn-block" href="">
+										<span style="color: yellow;">
+											<i class="fas fa-trophy"></i>
+										</span> Veja aqui
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card-md-8 text-light transacao-cards-index">
+								<img class="card-img-top" src="img/hero_guide_index.jpg">
+								<div class="card-img-overlay">
+									<h4 class="card-title text-center">Hero Guide</h4>
+									<h6 class="card-subtitle text-center">Guia e dicas para seu herói.</h6>
+									<p class="card-text text-center">.</p>
+									<a class="btn btn-outline-light btn-block" href="">
+										<span style="color: black;">
+											<i class="fab fa-leanpub"></i>
+										</span> Veja aqui
+									</a>
+								</div>
+							</div>
+						</div>  
+					</div>
+				</div>
+				<div class="col-md-7"><!--NOTICIAS duplicado CRIAR ARQUIVO UNICO-->
+
+					<div style="border-left: 1px solid #F3EEEE; height: 100%">
+
+						<h2 class="text-center titulo-noticia">Notícias</h2>
+
+						<?php
+						foreach ($this->view->noticias as $noticia) {
+							?>							
+							<div class="container elementToFadeInAndOut  transacao-cards-index">
+								<div class="row ml-auto mt-2">
+									<div class="col-md-3 d-block">
+										<a href="/noticia?noticia=<?= $noticia['id']?>">
+											<img id="imagem-noticia" src="/imagens_noticias/<?=$noticia['imagem'] ?>">
+										</a>
+									</div>
+									<div class="col-md-9">
+										<div class="container d-block">
+											<a href="/noticia?noticia=<?= $noticia['id']?>">
+												<h4 class="titulo-noticia"><?= $noticia['titulo'] ?></h4>
+											</a>
+											<p class="text-truncate"><?= $noticia['texto'] ?> </p>
+											<small class="font-weight-light"><?= date('d/m/Y', strtotime($noticia['data'])) ?></small>	
+										</div>
+									</div>
+									<br>
+								</div>
+							</div>
+							<?php
+
+						}
+						?>
+						<p class="ml-4 mt-1 link-noticia"><a href="/todas_noticias">+ Ver todas as noticias.</a></p>
+					</div>
+				</div>
+			</section><!--Fim seção conteúdos-->
+
+			<!-- rodapé -->
+			<footer>
+				<div class="row pl-5">
+					<div class="col-md-2">
+						<i class="fab fa-fantasy-flight-games text-light text-lg"> Projeto Arena</i>
+					</div>
+					<div class="col-md-2">
+						<h4>Company</h4>
+						<ul class="navbar-nav">
+							<li class="nav-item"><a href="">Sobre</a></li>
+							<li class="nav-item"><a href="">Empregos</a></li>
+							<li class="nav-item"><a href="">Novidades</a></li>
+						</ul>
+					</div>
+					<div class="col-md-2">
+						<h4>Comunidade</h4>
+						<ul class="navbar-nav">
+							<li class="nav-item"><a href="">Desenvolvedores</a></li>
+							<li class="nav-item"><a href="">Patrocinadores</a></li>
+							<li class="nav-item"><a href="">Fórum</a></li>
+						</ul>
+					</div>
+					<div class="col-md-2">
+						<h4>Links úteis</h4>
+						<ul class="navbar-nav">
+							<li class="nav-item"><a href="">xxx</a></li>
+							<li class="nav-item"><a href="">xxxxx</a></li>
+							<li class="nav-item"><a href="">xxxxxxx</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h4>Redes Sociais</h4>
+						<ul class="navbar-nav">
+							<li class="nav-item"><a href=""><i class="fab fa-facebook"> Facebook</i></a></li>
+							<li class="nav-item"><a href=""><i class="fab fa-twitter"> Twitter</i></a></li>
+							<li class="nav-item"><a href=""><i class="fab fa-instagram"> Instagram</i></a></li>
+						</ul>
+					</div>
+				</div>  
+			</footer>

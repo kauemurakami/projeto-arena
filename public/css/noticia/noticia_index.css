@@ -1,0 +1,48 @@
+.titulo-noticia{
+    color: #c4172c;
+    size: 10%;
+    font-weight: bold;
+    text-indent: 5px;
+}
+.conteudo-noticia{
+    size: 8px;
+    color: black;
+    text-indent: 8px;
+}
+#imagem-noticia{
+  width: 190px;
+  height: 100px;
+  border-radius: 5px;
+}
+.link-noticia{
+  color: black;
+}
+.link-noticia a{
+  display: block;
+  height: 50px;
+  color: black;
+  text-align: center;
+}
+.link-noticia a:hover{
+  text-decoration: none;
+  color:  #c4172c;
+}
+
+.texto-noticia{
+  width: 96%;
+}
+
+.elementToFadeInAndOut{
+  -webkit-animation: fadeinout 4s linear forwards;
+  animation: fadeinout 4s linear forwards;
+  opacity: 0;
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes fadeinout {
+  100% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  100% { opacity: 1; }
+}

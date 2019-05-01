@@ -1,0 +1,51 @@
+  <nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparante">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand">
+        <i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+      </a>
+
+      <!-- botao responsivo -->
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+        <i class="fas fa-bars text-white"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav-principal">
+        <ul class="navbar-nav  ml-auto mt-2">
+          <li class="nav-item">
+            <a href="/timeline">Home</a>
+          </li>
+          <!-- Divisor-->
+          <li class="nav-item divisor"> </li>
+          <li class="nav-item">
+            <a href="/sair">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--Fim menu superior-->
+        <div class="row">
+          <div class="col">
+
+
+            <form action="/criarequipe" method="post" class="mt-5">
+              <div class="form-group">
+                <input type="text" name="nome_equipe" class="form-control" placeholder="Nome da equipe">
+              </div>
+              <div class="mt-4 mb-4">
+                <small class="form-text">
+                  Cadastrar equipe
+                </small>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+              <!--
+              <?php if($this->view->erroCadastroEquipe){ ?>
+
+                <small class="form-text text-danger">Erro ao tentar realizar o cadastro, verifique se os campos foram preenchidos corretamente!</small>
+
+              <?php }?> -->
+
+            </form>
+
+          </div>
+        </div>

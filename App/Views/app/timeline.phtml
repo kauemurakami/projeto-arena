@@ -1,0 +1,212 @@
+
+	<link rel="stylesheet" type="text/css" href="/css/timeline/graficos.css">
+	<link rel="stylesheet" type="text/css" href="/css/timeline/timeline.css">
+	<nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparante">
+		<div class="container-fluid">
+			<a href="/" class="navbar-brand">
+				<i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+			</a>
+
+			<!-- botao responsivo -->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="nav-principal">
+				<ul class="navbar-nav  ml-auto mt-2">
+					<li>
+					  <form class="form-inline form-control-sm pr-2 pt-2">
+					    <input class="form-control-sm mr-sm-2" type="search" placeholder="Pesquisar jogadores" aria-label="Pesquisar">
+					    <button class="btn btn-outline-light btn-sm my-2 my-sm-0 mr-4" type="submit">Pesquisar</button>
+					  </form>
+  				</li>
+					<li class="nav-item pr-4">
+						<a href="/notificações">
+							<i class=" pt-3 itens-menu strong fas fa-bell"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/"><p class="itens-menu">Home</p></a>
+					</li>
+					<!-- Divisor-->
+					<li class="nav-item divisor"> </li>
+					<li class="nav-item">
+						<p class="itens-menu"><a href="/sair">Sair</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim menu superior-->
+
+	<div class="container mt-5">
+		<div class="row pt-2">
+
+			<div class="col-md-3">
+
+				<div class="perfil">
+					<div class="perfilTopo">
+
+					</div>
+
+					<div class="perfilPainel">
+
+						<div class="row mt-2 mb-2">
+							<div class="col-4 mb-2">
+								<span class="perfilPainelNome">
+									<?= $this->view->info_usuario['nome'] ?>
+								</span>
+							</div>
+
+							<!-- Verifica se o usuario possui uma equipe, caso contrario habilita o botão criar-->
+							<?php if($this->view->botaoEquipe == false){ ?>
+								<div class="col-md-10">
+									<a href="/criarequipe" class="btn btn-outline-info ml-auto">Criar equipe</a>
+								</div>
+							<?php }?>
+						</div>
+
+
+						<!-- criar equipe se n possuir equipe fazer uma condição para verificar se é possivel criar uma equipe dependendo do participante participa ou nao ja de uma-->
+						<div class="row">
+							<div class="col-md">
+								<h3 class="text-center"><?= $this->view->nomeEquipe ?> </h3>
+								<div class="container-fluid">
+
+									<!-- imprimindo membros da equipe-->
+
+									<?php for($i = 0 ; $i < count($this->view->membros) ; $i++ ){ 
+										if($this->view->membros[$i]['nome'] != ''){
+											?>
+											<div class="p-2 " style="border: 1px solid black;">
+												<span class="perfilPainelNome"><?= $this->view->membros[$i]['nome'] ?></span>
+												<!-- Verifica se o membro é o lider para apresentação do simbolo de lider-->
+												<?php if($this->view->membros[$i]['id'] == $this->view->id_lider){ ?>
+													<div class="ml-5 d-inline">
+														<i class="fas fa-crown text-info"></i>
+													</div>
+												<?php }?>
+												<?php if($_SESSION['id'] == $this->view->id_lider){ ?>
+
+													<div class="dropdown ml-auto d-inline" style="float: right;">
+													  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															
+													  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												    <a class="dropdown-item" href="#">Destinar liderança</a>
+												    <a class="dropdown-item" href="#">Remover da equipe</a>	 												
+												  </div>
+
+												</div>												    
+												<?php } ?>
+
+											</div>
+
+										<?php }else break;
+									} ?>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-6">
+				<div class="row mb-2">
+					<div class="col tweetBox">
+						<!--Graficos de dados da equipe e jogador-->
+						<div style="display: block;"> 
+
+
+						<!--
+						##
+						retirar daqui Script GRÁFICO CIRCULAR
+						##
+						--->
+						<script type="text/javascript">
+														/**
+							* This function allows you to go to an specific frame of the animation
+							* Remember the frames are a percentage number, so it goes from 0 to 100
+							**/
+							function goTo(frame){
+								reset(); // Just reset
+								
+							  //For some reason Javascript needs a time to remove animate class. I tried to use as callback from reset but it just didnt work. 
+							  setTimeout(function(){
+							  	//Get components
+							  	var chart = document.getElementById("radioChartContent"), pVal = document.getElementById("percentValue");
+
+									//Add animate
+									chart.classList.add("animate");
+
+							    var currentPercent = 0; //Initial percentage
+
+									//Get percentage one by one
+									var currTimeout = setInterval(function(){
+							    	//Check is reach the limit
+							    	if(currentPercent == frame || currentPercent > 100){
+
+							          //Clear interval
+							          clearInterval(currTimeout);
+							          //Pause animation
+							          chart.style.animationPlayState = "paused";
+							          chart.style.webkitAnimationPlayState = "paused"; //if webkit
+							          
+							          return false;
+							        }else{
+							        	//Sum percentage
+							        	currentPercent++;
+							          //show new percentage
+							          pVal.innerHTML = currentPercent+"%";
+							        }
+							    }, 10); //We are using 10 cause it reference by a 1 second (1000 miliseconds) animation. If you're using 4 seconds, change to 40 as  example
+								},100);
+							}
+
+							//Reset to initial position
+							function reset(){
+								var chart = document.getElementById("radioChartContent"), pVal = document.getElementById("percentValue");
+
+								chart.classList.remove("animate");
+								pVal.innerHTML = "0%";
+								chart.style.animationPlayState = "initial";
+							  chart.style.webkitAnimationPlayState = "initial"; //if webkit
+							}
+						</script>
+
+						<div class="row">
+
+							<div class="col-md-4">	
+
+								<div class="chart">
+									<div class="radio_chart" id="radioChartContent">
+									</div>
+									<div class="cap">
+									</div>
+									<div class="value" id="percentValue">
+										<script type="text/javascript" >
+									goTo(10); //Valor do grafico 
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="col-md-3">
+	<div class="quemSeguir">
+		<span class="quemSeguirTitulo">Pesquisar jogadores / torneios</span><br />
+		<hr />
+		<a href="/quem_seguir" class="quemSeguirTxt">Procurar por pessoas ou torneios</a>
+	</div>
+</div>
+
+</div>
+</div>

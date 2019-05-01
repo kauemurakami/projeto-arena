@@ -1,0 +1,129 @@
+.area{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.area button{
+  margin: 0 10px;
+  border-radius:3px;
+  border: 1px solid #9a28fc;
+  padding: 10px 15px;
+  color: #9a28fc;
+  background-color:transparent;
+  cursor:pointer;
+}
+.area button:hover{
+  border: 1px solid white;
+  color: white;
+}
+.chart{
+  position: relative;
+  width:70px;
+  height:70px;
+  
+  border-radius: 50%;
+  background-color: none;
+  overflow:hidden;
+}
+
+.chart .radio_chart{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position:absolute;
+}
+.chart .radio_chart.animate{
+  animation-name: circled;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  -moz-animation-name: circled;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: linear;
+  -webkit-animation-name: circled;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  background: #a200ff;
+}
+.chart .cap{
+  border-top: #666 1px solid;
+  border-left: #666 1px solid;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  
+  transform: scale(.8);
+  
+  background-color: black;
+  margin: 0 auto;
+  border-radius:50%;
+  
+  box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+}
+
+.chart .value{
+  color: white;
+  width:100%;
+  height:100%;
+  text-align: center;
+  font-size:100%;
+  top:37.5%;
+  
+  position:absolute;
+
+  text-shadow: -2px -2px 5px #9a28fc, 2px 2px 5px #9a28fc, 0 0 50px #9a28fc;
+}
+/* The animation based on an hexagon
+* its make the radial anim effet
+*/
+@keyframes circled {
+    0%   {
+       clip-path: polygon(100% 0, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 50% 50%);
+    }
+    25%  {
+        clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 50%);
+    }
+    50%{
+       clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0% 100%, 0 100%, 50% 50%);
+    }
+    75%  {
+       clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0%, 0 0, 50% 50%);
+    }
+    100% {
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0, 100% 0, 50% 50%);
+    }
+}
+
+@-webkit-keyframes circled {
+    0%   {
+       -webkit-clip-path: polygon(100% 0, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 50% 50%);
+    }
+    25%  {
+        -webkit-clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 50%);
+    }
+    50%{
+       -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0% 100%, 0 100%, 50% 50%);
+    }
+    75%  {
+       -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0%, 0 0, 50% 50%);
+    }
+    100% {
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0, 100% 0, 50% 50%);
+    }
+}
+@-moz-keyframes circled {
+    0%   {
+       clip-path: polygon(100% 0, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 50% 50%);
+    }
+    25%  {
+        clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 50%);
+    }
+    50%{
+       clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0% 100%, 0 100%, 50% 50%);
+    }
+    75%  {
+       clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0%, 0 0, 50% 50%);
+    }
+    100% {
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0, 100% 0, 50% 50%);
+    }
+}

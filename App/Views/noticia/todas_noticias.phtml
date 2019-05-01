@@ -1,0 +1,88 @@
+	<link rel="stylesheet" type="text/css" href="/css/noticia/todas_noticias.css">
+	<!--Inicio menu superior-->
+	<nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparante">
+		<div class="container-fluid">
+			<a href="/" class="navbar-brand">
+				<i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+			</a>
+
+			<!-- botao responsivo -->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="nav-principal">
+				<ul class="navbar-nav  ml-auto mt-2">
+					<li class="nav-link">
+						<a href="/">Home</a>
+					</li>
+					<!-- Divisor-->
+					<li class="nav-item divisor"> </li>
+					<li class="nav-item">
+						<a href="/inscreverse" class="nav-link">Cadastre-se</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim menu superior-->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6" style="border: 1px solid black;">
+
+				<div class="container-fluid">
+					<h2 class="text-center titulo-noticia pt-5"><?=$this->view->noticia['titulo'] ?></h2>		
+
+								<div class="text-center pb-2 imagem-noticia" style="border: 1px solid black;">
+									<img width="90%" height="300px" src="/imagens_noticias/<?= $this->view->noticia['imagem'] ?>">		
+								</div>
+
+								<div class="container" style="border: 1px solid black;">
+									<p class="text-capitalize text-md-left"><?=$this->view->noticia['texto'] ?></p>		
+								</div>
+							<small><?=$this->view->noticia['data'] ?></small>
+						</div>
+				</div>
+
+			<div class="col-md-6 pl-1 div-noticia pt-5" style="border: 1px solid black;">
+				<div style="border-left: 1px solid #F3EEEE; height: 100%">
+
+					<?php
+					foreach ($this->view->noticias as $noticia) {
+						if ($noticia['id'] != $this->view->noticia['id']) {
+						?>							
+						<div class="container">
+							<div class="row ml-auto mt-2 ">
+								<div class="col-md-3 d-block">
+									<a href="/noticia?noticia=<?= $noticia['id']?>">
+										<img id="imagem-noticia" src="/imagens_noticias/<?=$noticia['imagem'] ?>">
+									</a>
+								</div>
+								<div class="col-md-9">
+									<div class="container d-block">
+										<a href="/noticia?noticia=<?= $noticia['id']?>">
+											<h4 class="titulo-noticia pl-4"><?= $noticia['titulo'] ?></h4>
+										</a>
+										<p class="text-truncate pl-4"><?= $noticia['texto'] ?> 	</p>
+									</div>
+
+
+									<small class="font-weight-light pl-5">
+										<?= date('d/m/Y', strtotime($noticia['data'])) ?>
+
+									</small>
+								</div>
+
+							</div>
+						</div>
+						<?php
+						
+						}
+					}
+					?>
+					
+				</div>
+			</div>
+		</div>
+	</div>

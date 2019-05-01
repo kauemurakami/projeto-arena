@@ -1,0 +1,124 @@
+	<nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparante">
+		<div class="container-fluid">
+			<a href="/" class="navbar-brand">
+				<i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+			</a>
+
+			<!-- botao responsivo -->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="nav-principal">
+				<ul class="navbar-nav  ml-auto mt-2">
+					<li class="nav-item">
+						<a href="/timeline">Home</a>
+					</li>
+					<!-- Divisor-->
+					<li class="nav-item divisor"> </li>
+					<li class="nav-item">
+						<a href="/sair">Sair</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim menu superior-->
+
+<div class="container mt-5">
+	<div class="row pt-2">
+		
+		<div class="col-md-3">
+
+			<div class="perfil">
+				<div class="perfilTopo">
+
+				</div>
+
+				<div class="perfilPainel">
+					
+					<div class="row mt-2 mb-2">
+						<div class="col mb-2">
+							<span class="perfilPainelNome"><?= $_SESSION['nome'] ?></span>
+						</div>
+					</div>
+
+					<div class="row mb-2">
+
+						<div class="col">
+							<span class="perfilPainelItem">Tweets</span><br />
+							<span class="perfilPainelItemValor">0</span>
+						</div>
+
+						<div class="col">
+							<span class="perfilPainelItem">Seguindo</span><br />
+							<span class="perfilPainelItemValor">0</span>
+						</div>
+
+						<div class="col">
+							<span class="perfilPainelItem">Seguidores</span><br />
+							<span class="perfilPainelItemValor">0</span>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-6">
+			
+			<div class="row mb-2">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<form method="get" action="/quem_seguir">
+								<div class="input-group mb-3">
+									<input type="text" name="pesquisarPor" class="form-control" placeholder="Quem você está procurando?">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="submit">Procurar</button>
+									</div>
+								</div>										
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<?php foreach ($this->view->usuarios as $indice_arr => $usuario) { ?>
+				<div class="row mb-2">
+					<div class="col">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-6">
+										<?= $usuario['nome'];?>
+
+										<?php  echo '<br>';echo '<pre>'; print_r($usuario);echo '</pre>'; ?>
+
+									</div>
+									<div class="col-md-6 d-flex justify-content-end">
+										<div>
+											<a href="/convidar_para_equipe?<?=$usuario['id']?>" class="btn btn-outline-success ml-auto">Convidar</a>
+											<!--Passando parametros por get
+											@param1 recebe a ação
+											@param2 recebe id do usuario
+											/// tomada de decisão baseada se o usuario ja segue ou não
+											<?php if($usuario['seguindo_sn'] == 0){ ?>
+											<a href="/acao?acao=seguir&id_usuario=<?= $usuario['id'] ?>" class="btn btn-success">Seguir</a>
+											<?php } ?>
+											<?php if($usuario['seguindo_sn'] == 1){ ?>
+											<a href="/acao?acao=deixar_de_seguir&id_usuario=<?= $usuario['id'] ?>" class="btn btn-danger">Deixar de seguir</a>
+											<?php } ?> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>

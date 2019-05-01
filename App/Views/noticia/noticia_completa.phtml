@@ -1,0 +1,49 @@
+	<!-- Inicio menu superior-->
+	<link rel="stylesheet" type="text/css" href="/css/noticia/noticia_completa.css">
+
+		<nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparante">
+		<div class="container-fluid">
+			<a href="/" class="navbar-brand">
+				<i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+			</a>
+
+			<!-- botao responsivo -->
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="nav-principal">
+				<ul class="navbar-nav  ml-auto mt-2">
+					<li class="nav-link">
+						<a href="/">Home</a>
+					</li>
+					<!-- Divisor-->
+					<li class="nav-item divisor"> </li>
+					<li class="nav-item">
+						<a href="/inscreverse" class="nav-link ">Cadastre-se</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Fim menu superior-->
+
+<div class="container-fluid bg-dark pt-5">
+	<h2 class="text-center titulo-noticia pt-4"><?=$this->view->noticia['titulo'] ?></h2>
+	<div class="container-fluid bg-white pt-4">
+		<div class="row ">	
+
+			<div class="col-md-6 " >
+				<div class="container" style="border: 1px solid black;">
+					<p class="text-capitalize text-md-left"><?=$this->view->noticia['texto'] ?></p>		
+				</div>
+			</div>
+			<div class="col-md-6 hidden-md">
+				<div class="text-center pb-2 pt-2 imagem-noticia" style="border: 1px solid black;">
+					<img width="90%" height="300px" src="/imagens_noticias/<?=$this->view->noticia['imagem'] ?>">		
+				</div>
+			</div>
+				<small><?=$this->view->noticia['data'] ?></small>
+		</div>
+</div>
+</div>

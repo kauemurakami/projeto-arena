@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="/css/administrador/menu_administrador.css">	
+
+<nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparante">
+	<div class="container-fluid">
+		<a href="/" class="navbar-brand">
+			<i class="fab fa-fantasy-flight-games text-light"> Projeto Arena</i>
+		</a>
+
+		<!-- botao responsivo -->
+		<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+			<i class="fas fa-bars text-white"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="nav-principal">
+			<ul class="navbar-nav  ml-auto mt-2">
+				<li class="nav-item">
+					<a href="/timelineAdministrador">Home</a>
+				</li>
+				<!-- Divisor-->
+				<li class="nav-item divisor"> </li>
+				<li class="nav-item">
+					<a href="/sair">Sair</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!--Fim menu superior-->
+<div class="container mt-5" style="border : 1px solid black;">
+	<div class="row pt-2">
+		<div class="col-md">
+			<h3>Menu administrador</h3>
+
+
+						<form action="/inserir_noticia"  enctype="multipart/form-data" method="post" accept-charset="utf-8">
+							<div class="form-group">
+								<label>Titulo</label>
+								<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo da noticia">
+								<label>Conteudo</label>
+								<textarea type="text" class="form-control" name="texto" id="texto" rows="3" placeholder="Conteudo da noticia"></textarea>
+      					<input name="imagem" type="file"/>
+							</div>
+							<input type="submit" value="Enviar" class="btn btn-outline-light btn-sm">
+						</form>
+
+
+				</div>
+
+
+
+			</div>
+		</div>
